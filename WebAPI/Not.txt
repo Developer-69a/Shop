@@ -1,0 +1,5 @@
+﻿Migration {
+ 1. Add-Migration InitialCreate -Context ProjectDbContext -OutputDir Migrations/Pg = Migration oluştumak için,
+ 2. Update-Database -context ProjectDbContext = Migration veritabanına güncelliyor
+
+}
