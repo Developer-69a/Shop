@@ -19,6 +19,12 @@ namespace Bussines.Concrete
             _categoryDal = categoryDal;
         }
 
+        public  async Task<IResult> AddAsync(Category category)
+        {
+           await _categoryDal.AddAsync(category);
+            return new SuccessResult("Kategori Eklendi.");
+        }
+
         public  async Task<IResult> DeleteAsync(Category category)
         {
             if (category == null)
@@ -29,6 +35,12 @@ namespace Bussines.Concrete
             return new SuccessResult("Kategori Silindi.");
         }
 
+        public async Task<IDataResult<Category>> GetIdAsync(int Id)
+        {
+            var category=await _categoryDal.GetAsync(x => x.Id == Id);
+            return new SuccessDataResult<Category>(category,"");
+        }
+
         public async Task<IDataResult<List<Category>>> GetListAsync()
         {
             var CategoryList= await _categoryDal.GetListAsync();
@@ -37,6 +49,12 @@ namespace Bussines.Concrete
                 return new ErrorDataResult<List<Category>>("Kategori Listelenemedi.");
             }
             return new SuccessDataResult<List<Category>>(CategoryList.ToList(), "Kategory Listelendi.");
+        }
+
+        public async Task<IDataResult<List<Category>>> SearchAsync(string name)
+        {
+            var categoryList = await _categoryDal.GetListAsync(x => x.CategoryName.ToLower().Contains(name.ToLower()));
+            return new SuccessDataResult<List<Category>>(categoryList.ToList());
         }
     }
 }

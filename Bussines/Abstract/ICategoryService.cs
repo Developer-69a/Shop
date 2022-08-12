@@ -12,6 +12,9 @@ namespace Bussines.Abstract
     {
         Task<IResult> DeleteAsync(Category category);
         Task<IDataResult<List<Category>>> GetListAsync();
+        Task<IDataResult<Category>> GetIdAsync(int Id);
+        Task<IDataResult<List<Category>>> SearchAsync(string name);
+        Task<IResult> AddAsync(Category category);
           
     }
 }
