@@ -23,7 +23,6 @@ namespace DataAccess.Migrations.Pg
                     table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
-           
 
             migrationBuilder.CreateTable(
                 name: "Products",
@@ -51,8 +50,10 @@ namespace DataAccess.Migrations.Pg
             migrationBuilder.DropTable(
                 name: "Categories");
 
+         
             migrationBuilder.DropTable(
-                name: "Products");      
+                name: "Products");
+
         }
     }
 }
