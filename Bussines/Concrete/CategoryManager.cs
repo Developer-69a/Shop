@@ -24,7 +24,7 @@ namespace Bussines.Concrete
            await _categoryDal.AddAsync(category);
             return new SuccessResult("Kategori Eklendi.");
         }
-
+  
         public  async Task<IResult> DeleteAsync(Category category)
         {
             if (category == null)
