@@ -24,5 +24,11 @@ namespace Bussines.Concrete
             await _productDal.AddAsync(product);
             return new SuccessResult("Ürün Eklendi");
         }
+
+        public async Task<IDataResult<List<Product>>> GetAll()
+        {
+            var productList = await _productDal.GetListAsync();
+            return new SuccessDataResult<List<Product>>(productList.ToList());
+        }
     }
 }

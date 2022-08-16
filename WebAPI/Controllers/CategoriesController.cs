@@ -27,5 +27,12 @@ namespace WebAPI.Controllers
             var result= await _categoryService.SearchAsync(search);
             return result.Success ? Ok(result) : BadRequest(result.Message);
         }
+
+        [HttpGet("GetList")]
+        public async Task<ActionResult> GetList()
+        {
+            var result=await _categoryService.GetListAsync();
+            return result.Success ? Ok(result):BadRequest(result.Message);
+        }
     }
 }
