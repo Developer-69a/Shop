@@ -30,6 +30,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ProductManager>().As<IProductService>();
             builder.RegisterType<EfProductDal>().As<IProductDal>();
 
+            builder.RegisterType<ProductPhotographyManager>().As<IProductPhotographyService>();
+            builder.RegisterType<EfProductPhotographyDal>().As<IProductPhotographyDal>();
+
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 

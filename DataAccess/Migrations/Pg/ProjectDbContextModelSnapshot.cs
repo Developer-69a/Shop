@@ -139,6 +139,26 @@ namespace DataAccess.Migrations.Pg
 
                     b.ToTable("Products");
                 });
+
+            modelBuilder.Entity("Entities.Concrete.ProductPhotography", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductPhotographies");
+                });
 #pragma warning restore 612, 618
         }
     }
